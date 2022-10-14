@@ -25,6 +25,8 @@ dependencies:
   flutter_bloc: 8.1.1
   equatable: ^2.0.5
 
+  # Image
+  cached_network_image: ^3.2.2
 
   # Cupertino
   cupertino_icons: ^1.0.2

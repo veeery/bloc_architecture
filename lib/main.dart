@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
                 return OrientationBuilder(
                   builder: (context, orientation) {
                     return MediaQuery(
-                      data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+                      data: MediaQuery.of(context)
+                          .copyWith(textScaleFactor: 1),
                       child: child!,
                     );
                   },

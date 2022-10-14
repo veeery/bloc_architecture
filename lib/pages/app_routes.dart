@@ -10,8 +10,8 @@ class AppPages {
 class AppRoutes {
   static final routes = {
 
-    AppPages.home : (context) => const HomeView(),
-    AppPages.profile : (context) => const ProfileView(),
+    AppPages.home : (context) => HomeView(),
+    AppPages.profile : (context) => ProfileView(),
 
   };
 }
