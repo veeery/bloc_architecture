@@ -9,15 +9,13 @@ class AppNetworkImage extends StatelessWidget {
   double? height;
   String imageUrl;
   BoxFit fit;
-  // Widget errorWidget;
 
   AppNetworkImage({
     required this.imageUrl,
-    // this.errorWidget =
     this.height,
     this.width,
     this.isCircular = true,
-    this.fit = BoxFit.cover
+    this.fit = BoxFit.fill
   });
 
   @override
@@ -26,15 +24,21 @@ class AppNetworkImage extends StatelessWidget {
       width: width ?? 0.3.sw,
       height: height ?? 0.15.sh,
       decoration: BoxDecoration(
-        color: Colors.blue,
+        color: Colors.grey,
         borderRadius: BorderRadius.circular(isCircular ? 25.w : 0),
       ),
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
-        fit: fit,
-        errorWidget: (context, url, error) {
-          return Text("Tidak bisa Load");
-        },
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(isCircular ? 25.w : 0),
+        child: CachedNetworkImage(
+          imageUrl: imageUrl,
+          fit: fit,
+          placeholder: (context, url) {
+            return const Center(child: CircularProgressIndicator());
+          },
+          errorWidget: (context, url, error) {
+            return const Center(child: Icon(Icons.image_not_supported_outlined));
+          },
+        ),
       ),
     );
   }
