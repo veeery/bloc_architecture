@@ -9,10 +9,11 @@ class AppProfileCard extends StatelessWidget {
   User user;
   EdgeInsets? padding;
 
-  AppProfileCard(
-      {required this.user,
-      this.backgroundColor = AppColor.disableColor,
-      this.padding});
+  AppProfileCard({
+    required this.user,
+    this.backgroundColor = AppColor.disableColor,
+    this.padding
+  });
 
   @override
   Widget build(BuildContext context) {

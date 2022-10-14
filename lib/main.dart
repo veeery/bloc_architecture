@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: "BloC Architecture",
               theme: ThemeData(fontFamily: "ProximaNova"),
-              initialRoute: AppPages.home,
+              initialRoute: AppPages.dashboard,
               routes: AppRoutes.routes,
             );
           }),

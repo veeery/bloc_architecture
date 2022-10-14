@@ -5,6 +5,8 @@ import 'package:dio/dio.dart';
 class AppDio {
 
   static String baseUrl = "https://reqres.in/";
+  // static String baseUrl = "http://192.168.88.214:3000/";
+
 
   final appDio = dio();
 
@@ -40,6 +42,7 @@ class AppDio {
   static Dio dio() {
     final options = BaseOptions(
         baseUrl: "$baseUrl/api/",
+        // baseUrl: "$baseUrl/",
         contentType: "application/json",
         connectTimeout: 30000,
         sendTimeout: 30000,
