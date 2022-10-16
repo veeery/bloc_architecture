@@ -1,5 +1,9 @@
 import 'package:bloc_architecture/constant/app_overlay.dart';
 import 'package:bloc_architecture/pages/app_routes.dart';
+import 'package:bloc_architecture/pages/dashboard/dashboard_bar.dart';
+import 'package:bloc_architecture/pages/home/home_view.dart';
+import 'package:bloc_architecture/pages/profile/profile_view.dart';
+import 'package:bloc_architecture/service/network/api_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,8 +29,7 @@ class MyApp extends StatelessWidget {
                 return OrientationBuilder(
                   builder: (context, orientation) {
                     return MediaQuery(
-                      data: MediaQuery.of(context)
-                          .copyWith(textScaleFactor: 1),
+                      data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
                       child: child!,
                     );
                   },

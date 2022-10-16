@@ -44,8 +44,9 @@ class Api {
     if (apiStatus) {
       return listUser;
     } else {
-      return [];
+      listUser = [];
+      return listUser;
     }
   }
-  
+
 }
