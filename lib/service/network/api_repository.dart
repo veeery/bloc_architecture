@@ -3,7 +3,7 @@ import 'package:bloc_architecture/model/user.dart';
 import 'package:bloc_architecture/service/network/app_dio.dart';
 import 'package:dio/dio.dart';
 
-class Api {
+class ApiRepository {
   static final String baseUrl = AppDio.baseUrl;
 
   Future<List<Comic>?> getAllComic() async {

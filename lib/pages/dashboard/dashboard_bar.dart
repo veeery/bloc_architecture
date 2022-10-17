@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DashBoardBar extends StatefulWidget {
+
   @override
   State<DashBoardBar> createState() => _DashBoardBarState();
 }
 
 class _DashBoardBarState extends State<DashBoardBar> {
-  int index = 0;
+  int index =0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +41,7 @@ class _DashBoardBarState extends State<DashBoardBar> {
     );
   }
 }
+
 
 // ignore: non_constant_identifier_names
 Widget AppDisplayPage({int index = 0}) {

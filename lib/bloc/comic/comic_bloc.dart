@@ -11,7 +11,7 @@ part 'comic_state.dart';
 class ComicBloc extends Bloc<ComicEvent, ComicState> {
   ComicBloc({required this.api}) : super(ComicInitial());
 
-  final Api api;
+  final ApiRepository api;
 
   Future<void> fetchAllComic() async {
     emit(Loading());

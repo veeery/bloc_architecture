@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ComicView extends StatelessWidget {
-  final Api api = Api();
+  final ApiRepository api = ApiRepository();
 
   ComicView
 
