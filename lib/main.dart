@@ -15,8 +15,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
-  final ApiRepository api = ApiRepository();
-
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion(
@@ -27,14 +25,14 @@ class MyApp extends StatelessWidget {
           designSize: Size(1080, 2220),
           builder: (context, child) {
             return RepositoryProvider.value(
-              value: api,
+              value: ApiRepository(),
               // MultiBLocProvider mean, u can cast BlocProvider more than 1 at the same time for loaded Page
               // BlocProvider mean, u only can Cast 1 BloC to initiate or Loaded Page
               child: MultiBlocProvider(
                 providers: [
                   //  This BloC for Users Tab in Navigation
                   BlocProvider<UserBloc>(
-                    create: (context) => UserBloc(api: api)..add(GetAllUser()),
+                    create: (context) => UserBloc()..add(GetAllUser()),
                   )
                 ],
                 child: MaterialApp(

@@ -10,18 +10,22 @@ class BaseWidgets extends StatelessWidget {
   final Widget? background;
   final Widget? headerWidget;
   final Future<bool> Function()? onWillPop;
+  final Future Function()? onRefresh;
   final Color? backgroundColor;
   final CrossAxisAlignment crossAxisAlignment;
+  final MainAxisAlignment mainAxisAlignment;
 
   BaseWidgets(
       {required this.children,
+      this.mainAxisAlignment = MainAxisAlignment.center,
+      this.crossAxisAlignment = CrossAxisAlignment.center,
       this.title = "",
       this.button,
       this.onWillPop,
       this.backgroundColor,
       this.headerWidget,
+      this.onRefresh,
       this.showButton = false,
-      this.crossAxisAlignment = CrossAxisAlignment.center,
       this.background});
 
   @override
@@ -34,35 +38,40 @@ class BaseWidgets extends StatelessWidget {
         onWillPop: onWillPop,
         child: Scaffold(
           body: SafeArea(
-            child: Stack(
-              children: [
-                background ?? Container(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    headerWidget ?? Container(),
-                    Expanded(
-                      child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10.w),
-                          width: 1.sw,
-                          child: SingleChildScrollView(child: _buildChild(context, withButton: showButton))),
-                    ),
-                  ],
-                ),
-                if (MediaQuery.of(context).viewInsets.bottom <= 0)
-                  Positioned(
-                    bottom: 100.w,
-                    child: Container(
-                      width: 0.425.sw,
-                      height: 0.15.sw,
-                      margin: EdgeInsets.only(
-                        left: 0.5.sw - (0.425.sw / 2),
-                        right: 0.5.sw - (0.425.sw / 2),
+            child: RefreshIndicator(
+              onRefresh: onRefresh ?? () async {},
+              child: Stack(
+                children: [
+                  background ?? Container(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      headerWidget ?? Container(),
+                      Expanded(
+                        child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10.w),
+                            width: 1.sw,
+                            child: SingleChildScrollView(
+                                physics: const BouncingScrollPhysics(),
+                                child: _buildChild(context, withButton: showButton))),
                       ),
-                      child: button,
-                    ),
+                    ],
                   ),
-              ],
+                  if (MediaQuery.of(context).viewInsets.bottom <= 0)
+                    Positioned(
+                      bottom: 100.w,
+                      child: Container(
+                        width: 0.425.sw,
+                        height: 0.15.sw,
+                        margin: EdgeInsets.only(
+                          left: 0.5.sw - (0.425.sw / 2),
+                          right: 0.5.sw - (0.425.sw / 2),
+                        ),
+                        child: button,
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
         ),
@@ -74,12 +83,18 @@ class BaseWidgets extends StatelessWidget {
     if (!withButton) {
       return Column(
         crossAxisAlignment: crossAxisAlignment,
-        children: children,
+        mainAxisAlignment: mainAxisAlignment,
+        children: [
+          ...children,
+          SizedBox(height: 0.2.sh)
+        ]
       );
     }
 
+
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: crossAxisAlignment,
+      mainAxisAlignment: mainAxisAlignment,
       children: [
         ...children,
         if (MediaQuery.of(context).viewInsets.bottom > 0)
@@ -91,7 +106,8 @@ class BaseWidgets extends StatelessWidget {
               child: button,
             ),
           ),
-        if (MediaQuery.of(context).viewInsets.bottom <= 0 ) SizedBox(height: 400.h),
+        if (MediaQuery.of(context).viewInsets.bottom <= 0) SizedBox(height: 400.h),
+        SizedBox(height: 0.2.sh)
       ],
     );
   }

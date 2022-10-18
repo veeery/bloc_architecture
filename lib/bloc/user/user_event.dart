@@ -8,7 +8,9 @@ abstract class UserEvent extends Equatable {
 }
 
 class GetAllUser extends UserEvent {
+
   @override
   List<Object> get props => [];
 
 }
+
