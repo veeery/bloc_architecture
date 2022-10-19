@@ -37,6 +37,7 @@ class BaseWidgets extends StatelessWidget {
       child: WillPopScope(
         onWillPop: onWillPop,
         child: Scaffold(
+          backgroundColor: backgroundColor,
           body: SafeArea(
             child: RefreshIndicator(
               onRefresh: onRefresh ?? () async {},

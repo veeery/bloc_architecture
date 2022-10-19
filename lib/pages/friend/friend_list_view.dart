@@ -1,6 +1,6 @@
 import 'package:bloc_architecture/bloc/friend/friend_bloc.dart';
-import 'package:bloc_architecture/bloc/user/user_bloc.dart';
 import 'package:bloc_architecture/model/user.dart';
+import 'package:bloc_architecture/widgets/app_empty.dart';
 import 'package:bloc_architecture/widgets/app_profile_friend_card.dart';
 import 'package:bloc_architecture/widgets/base_widget.dart';
 import 'package:bloc_architecture/widgets/loading/loading_center.dart';
@@ -23,20 +23,9 @@ class FriendListView extends StatelessWidget {
               if (state is LoadingFriendState) {
                 return const LoadingCenter();
               } else if (state is ErrorFriendState) {
-                return SizedBox(
-                  width: 1.sw,
-                  height: 1.sh,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(state.message),
-                      GestureDetector(
-                        onTap: () => context.read<FriendBloc>().add(GetAllFriend()),
-                        child: Text("Klik Here to refresh"),
-                      )
-                    ],
-                  ),
+                return AppEmpty(
+                    message: state.message,
+                    onTap: () => context.read<FriendBloc>().add(GetAllFriend())
                 );
               } else if (state is LoadFriendState) {
                 final userList = state.userList;
