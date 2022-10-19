@@ -1,6 +1,4 @@
 import 'package:bloc_architecture/pages/app_routes.dart';
-import 'package:bloc_architecture/widgets/loading/loading_card_profile.dart';
-import 'package:bloc_architecture/widgets/loading/loading_list.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -19,7 +17,6 @@ class HomeView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Home"),
-
           ],
         ),
       ),

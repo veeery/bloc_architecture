@@ -6,6 +6,23 @@ import 'package:dio/dio.dart';
 class ApiRepository {
   static final String baseUrl = AppDio.baseUrl;
 
+  // GetProfile can be use for Own Profile and to see FriendProfile
+  Future<User?> getProfile({required String idUser}) async {
+    User? user;
+
+    await AppDio.executeApiWithTryCatch(() async {
+      Response response = await AppDio.dio().get(
+          "users/$idUser",
+          // Here how to use HeaderToken, but in our case we don't have token so we disable it
+          // options: AppDio.headersToken()
+      );
+      user = User.fromJson(response.data['data']);
+    });
+
+    return user!;
+  }
+
+  // Get FriendList
   Future<DataReturnWithPagination> getAllFriend({required int currentPage, required int totalPages, required int limit}) async {
     late DataReturnWithPagination dataReturnWithPagination;
 
@@ -35,4 +52,5 @@ class ApiRepository {
       return dataReturnWithPagination;
     }
   }
+
 }

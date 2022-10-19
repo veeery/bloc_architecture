@@ -32,7 +32,7 @@ class FriendListView extends StatelessWidget {
                     children: [
                       Text(state.message),
                       GestureDetector(
-                        onTap: () => context.read<UserBloc>().add(GetAllUser()),
+                        onTap: () => context.read<FriendBloc>().add(GetAllFriend()),
                         child: Text("Klik Here to refresh"),
                       )
                     ],
@@ -51,7 +51,7 @@ class FriendListView extends StatelessWidget {
                       children: [
                         Text("EMPTY"),
                         GestureDetector(
-                          onTap: () => context.read<UserBloc>().add(GetAllUser()),
+                          onTap: () => context.read<FriendBloc>().add(GetAllFriend()),
                           child: Text("Klik Here to refresh"),
                         )
                       ],

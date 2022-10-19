@@ -27,13 +27,17 @@ class MyApp extends StatelessWidget {
           builder: (context, child) {
             return RepositoryProvider.value(
               value: ApiRepository(),
-              // MultiBLocProvider mean, u can cast BlocProvider more than 1 at the same time for loaded Page
+              // MultiBLocProvider mean, u can cast BlocProvider more than 1 at the same time for loaded Page / Started page
               // BlocProvider mean, u only can Cast 1 BloC to initiate or Loaded Page
+
+              // In This Case
               child: MultiBlocProvider(
                 providers: [
-                  //  This BloC for Users Tab in Navigation
+                  //  This UserBloc for Profile when Initiate apps in Navigation Bottom
                   BlocProvider<UserBloc>(
-                    create: (context) => UserBloc()..add(GetAllUser()),
+                    // for the Example we use 1 for our Own id Profile
+                    // u can get Id when login and keep in SharedPreferences
+                    create: (context) => UserBloc()..add(GetProfile(id: '1')),
                   ),
                 ],
                 child: MaterialApp(
