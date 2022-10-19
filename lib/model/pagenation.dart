@@ -3,6 +3,8 @@ class DataReturnWithPagination<T> {
   int currentIndex;
   int totalPages;
   int limit;
+  // This Generic List<T> for return data from ApiRepository to BloC
+  // T is a type data class
   List<T>? dataReturn;
 
   DataReturnWithPagination({

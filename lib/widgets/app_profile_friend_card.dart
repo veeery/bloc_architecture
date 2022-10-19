@@ -4,12 +4,12 @@ import 'package:bloc_architecture/widgets/app_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppProfileCard extends StatelessWidget {
+class AppProfileFriendCard extends StatelessWidget {
   Color backgroundColor;
   User user;
   EdgeInsets? padding;
 
-  AppProfileCard({
+  AppProfileFriendCard({
     required this.user,
     this.backgroundColor = AppColor.disableColor,
     this.padding

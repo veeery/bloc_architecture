@@ -1,9 +1,13 @@
+import 'package:bloc_architecture/pages/friend/friend_list_view.dart';
 import 'package:bloc_architecture/pages/home/home_view.dart';
 import 'package:bloc_architecture/pages/profile/profile_view.dart';
 import 'package:bloc_architecture/widgets/app_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
+// This is Dashboard / BottomNavigation with
+// Home, Profile
 class DashBoardBar extends StatefulWidget {
 
   @override

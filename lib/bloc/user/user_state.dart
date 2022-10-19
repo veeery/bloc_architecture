@@ -9,26 +9,26 @@ class UserInitial extends UserState {
   List<Object> get props => [];
 }
 
-class LoadingState extends UserState {
+class LoadingUserState extends UserState {
   @override
   List<Object> get props => [];
 }
 
-class LoadState extends UserState {
+class LoadUserState extends UserState {
   @override
   List<User> userList;
 
-  LoadState({required this.userList});
+  LoadUserState({required this.userList});
 
   @override
   List<Object> get props => [userList];
 }
 
-class ErrorState extends UserState {
+class ErrorUserState extends UserState {
 
   String message;
 
-  ErrorState({required this.message});
+  ErrorUserState({required this.message});
 
   @override
   List<Object> get props => [message];

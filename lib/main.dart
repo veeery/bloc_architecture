@@ -1,3 +1,4 @@
+import 'package:bloc_architecture/bloc/friend/friend_bloc.dart';
 import 'package:bloc_architecture/bloc/user/user_bloc.dart';
 import 'package:bloc_architecture/constant/app_overlay.dart';
 import 'package:bloc_architecture/pages/app_routes.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
                   //  This BloC for Users Tab in Navigation
                   BlocProvider<UserBloc>(
                     create: (context) => UserBloc()..add(GetAllUser()),
-                  )
+                  ),
                 ],
                 child: MaterialApp(
                   builder: (context, child) {
