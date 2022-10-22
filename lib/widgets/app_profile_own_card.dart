@@ -5,6 +5,7 @@ import 'package:bloc_architecture/widgets/app_button.dart';
 import 'package:bloc_architecture/widgets/app_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AppProfileOwnCard extends StatelessWidget {
 
@@ -77,16 +78,36 @@ class AppProfileOwnCard extends StatelessWidget {
     return Container(
       width: 0.7.sw,
       height: 0.1.sh,
-      padding: padding ?? EdgeInsets.symmetric(horizontal: 50.w, vertical: 50.h),
+      padding: padding ?? EdgeInsets.symmetric(horizontal: 50.w),
       decoration: BoxDecoration(
-          // color: colors.withOpacity(0.3),
           color: colors,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(width: 2,color: colors)
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          
+          // This For FriendList View
+          AppButton.secondaryButton(
+            icon: Icon(FontAwesomeIcons.userGroup, size: 50.sp,),
+            onTap: () {
+
+            }
+          ),
+          // This for Edit Profile
+          AppButton.secondaryButton(
+              icon: Icon(FontAwesomeIcons.edit, size: 50.sp,),
+              onTap: () {
+
+              }
+          ),
+          // This Go To Etc of Profile like Setting to private Account, delete account, or some policy app
+          AppButton.secondaryButton(
+              icon: Icon(FontAwesomeIcons.list, size: 50.sp,),
+              onTap: () {
+
+              }
+          )
         ],
       ),
     );

@@ -26,6 +26,8 @@ dependencies:
   # Image
   cached_network_image: ^3.2.2
 
+  # Icon & Font Resource Assets
+  font_awesome_flutter: ^10.2.1
 
   # Cupertino
   cupertino_icons: ^1.0.2
