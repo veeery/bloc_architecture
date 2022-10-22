@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:bloc_architecture/model/user.dart';
 import 'package:bloc_architecture/widgets/app_button.dart';
@@ -7,12 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../pages/app_routes.dart';
+
 class AppProfileOwnCard extends StatelessWidget {
 
   final User user;
   final EdgeInsets? padding;
   final Color colors;
-
 
   AppProfileOwnCard({
     required this.user,
@@ -53,7 +53,7 @@ class AppProfileOwnCard extends StatelessWidget {
             bottom: 0,
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: buildOptionButton(),
+                child: buildOptionButton(context: context),
               )
           )
         ],
@@ -74,7 +74,7 @@ class AppProfileOwnCard extends StatelessWidget {
     );
   }
 
-  Widget buildOptionButton() {
+  Widget buildOptionButton({required BuildContext context}) {
     return Container(
       width: 0.7.sw,
       height: 0.1.sh,
@@ -91,7 +91,7 @@ class AppProfileOwnCard extends StatelessWidget {
           AppButton.secondaryButton(
             icon: Icon(FontAwesomeIcons.userGroup, size: 50.sp,),
             onTap: () {
-
+              Navigator.pushNamed(context, AppPages.friendList);
             }
           ),
           // This for Edit Profile

@@ -33,6 +33,7 @@ class ProfileView extends StatelessWidget {
               return const SizedBox.shrink();
             },
           ),
+
         ]);
   }
 }

@@ -31,19 +31,16 @@ class AppButton {
     final TextStyle? textStyle,
   }) {
     return MaterialButton(
-      onPressed: () {
-        FocusManager.instance.primaryFocus?.unfocus();
-        onTap();
-      },
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.r)),
-      splashColor: AppColor.shadowColor,
-      elevation: 20.r,
-      color: AppColor.gradient5,
-      minWidth: 0.07.sh,
-      height: 0.07.sh,
-      child: icon
-    );
+        onPressed: () {
+          FocusManager.instance.primaryFocus?.unfocus();
+          onTap();
+        },
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.r)),
+        splashColor: Colors.black,
+        elevation: 20.r,
+        color: AppColor.primaryColor,
+        minWidth: 0.07.sh,
+        height: 0.07.sh,
+        child: icon);
   }
-
-
 }
