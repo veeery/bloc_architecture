@@ -5,6 +5,7 @@ import 'package:bloc_architecture/service/network/api_repository.dart';
 import 'package:equatable/equatable.dart';
 
 part 'friend_event.dart';
+
 part 'friend_state.dart';
 
 class FriendBloc extends Bloc<FriendEvent, FriendState> {
@@ -21,13 +22,10 @@ class FriendBloc extends Bloc<FriendEvent, FriendState> {
     await emit(LoadingFriendState());
     try {
       DataReturnWithPagination dataReturnWithPagination;
-      dataReturnWithPagination = await api.getAllFriend(currentPage: currentPage, totalPages: totalPages, limit: 6);
+      dataReturnWithPagination = await api.getAllFriend(currentPage: currentPage, totalPages: totalPages, limit: 5);
       await emit(LoadFriendState(userList: dataReturnWithPagination.dataReturn as List<User>));
     } catch (e) {
       await emit(ErrorFriendState(message: e.toString()));
     }
   }
-
-
-
 }

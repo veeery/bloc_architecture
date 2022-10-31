@@ -9,9 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FriendListView extends StatelessWidget {
-  const FriendListView
-
-  ({super.key});
+  const FriendListView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -38,7 +38,7 @@ class ApiRepository {
       var listUser = result.map((e) => User.fromJson(e)).toList();
       var tempPage = DataReturnWithPagination.fromJson(response.data);
 
-      // Add data to dataReturnWithPagination with Generic
+      // Add data to dataReturnWithPagination with Generic & The Generic is User Class
       dataReturnWithPagination = DataReturnWithPagination<User>(
           currentIndex: tempPage.currentIndex, totalPages: tempPage.totalPages, dataReturn: listUser);
 
